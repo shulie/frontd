@@ -1,11 +1,11 @@
 import React from 'react';
-import { Test, Menu, Row, Col, Button, Icon, Dropdown, message, Tooltip } from '../../src';
+import { Test, Menu, Row, Col, Button, Icon, Dropdown, message, Tooltip, Modal } from '../../src';
 
 class Wrapper extends React.Component {
 	constructor(props, context) {
 		super(props, context);
 		this.state = {
-			title:'请选择看板分组'
+			title:'请选择看板分组',
 		};
 	}
  handleDropdown(key,value) {
@@ -19,6 +19,12 @@ class Wrapper extends React.Component {
  handleSelect(key) {
 	const title = key.item.props.children;
 	 this.setState({title});
+ }
+ showModal() {
+	 this.setState({visible:true});
+ }
+ handleCancel = (e) => {
+	 this.setState({visible:false});
  }
 	render() {
 		let options = [{key:'1',value:'选项一'},{key:'2',value:'选项二'},{key:'3',value:'选项三'},{key:'4',value:'选项四'},];
@@ -137,6 +143,19 @@ class Wrapper extends React.Component {
 					 <div style={{marginTop:30,width:200,float:'left'}}>
 						 <Dropdown title={title}  overlay={itemlist} />
 					 </div>
+					 <div style={{marginTop:30,width:200,float:'left'}}>
+           		<Button onClick={this.showModal.bind(this)}>点我打开对话框</Button>
+					 </div>
+					 <Modal
+						 title="我的对话框"
+						 visible={this.state.visible}
+						 onCancel={this.handleCancel}
+						>
+							<p>对话框内容</p>
+							<p>对话框内容</p>
+							<p>对话框内容</p>
+							<p>对话框内容</p>
+						</Modal>
 				 </div>
       </div>
 				</div>

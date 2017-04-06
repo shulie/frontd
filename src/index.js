@@ -6,6 +6,7 @@ export Dropdown from './dropdown';
 export Table from './table';
 export message from './message';
 export Tooltip from './tooltip';
+export Modal from './modal';
 
 /* begin --- import antd component **/
 export Row from 'antd/lib/row';
