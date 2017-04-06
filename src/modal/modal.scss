@@ -1,0 +1,115 @@
+// 模态框- mask
+$modal-mask-backgroundColor: rgba(0,0,0,.4);
+$modal-content-backgroundColor: #ffffff;
+$modal-borderRadius: 5px;
+
+// 模态框-标题
+$modal-title-fontColor: #666666;
+$modal-title-fontSize: 14px;
+$modal-smTitle-fontColor: #aaaaaa;
+$modal-smTitle-fontSize: 12px;
+$mdoal-title-padding: 24px;
+
+// 模态框-close
+$modal-close-position: 24px;
+$modal-close-fontSize: 14px;
+$modal-close-fontFamily: iconfont;
+
+// 模态框-body
+$modal-body-padding: 24px;
+$modal-body-fontColor: #666666;
+$modal-body-fontSize: 12px;
+$modal-body-backgroundColor: #f6f6f6;
+
+// 模态框-footer
+$modal-footer-padding: 24px;
+$modal-footer-buttonLeft: 24px;
+
+@mixin maskStyle {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.dh-modal-mask {
+    @include maskStyle;
+    background-color: $modal-mask-backgroundColor;
+    height: 100%;
+    &-hidden {
+      display: none;
+    }
+}
+
+.dh-modal-wrap {
+    @include maskStyle;
+    overflow: auto;
+    outline: 0;
+    display: flex;
+    align-items: center;
+}
+
+.dh-modal {
+    position: relative;
+    margin: 0 auto;
+    background-color: $modal-content-backgroundColor;
+    border-radius: $modal-borderRadius;
+
+    &-close {
+        cursor: pointer;
+        border: 0;
+        background: transparent;
+        position: absolute;
+        right: $modal-close-position;
+        top: $modal-close-position;
+        z-index: 10;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        outline: 0;
+
+        &-x {
+            display: block;
+            font-style: normal;
+            font-family: $modal-close-fontFamily;
+            font-size: $modal-close-fontSize;
+            vertical-align: baseline;
+            text-align: center;
+            text-transform: none;
+            text-rendering: auto;
+
+            &:before {
+                content: "\e708";
+                display: block;
+            }
+        }
+    }
+
+    &-header {
+        padding: $mdoal-title-padding;
+    }
+    &-title {
+      font-size: 14px;
+      color: #666666;
+      &-sub {
+        margin-top: 12px;
+        font-size: 12px;
+        color: #aaaaaa;
+      }
+    }
+    &-body {
+        margin: 0 $modal-body-padding;
+        background-color: $modal-body-backgroundColor;
+        color: $modal-body-fontColor;
+        font-size: $modal-body-fontSize;
+    }
+
+    &-footer {
+        padding:  $modal-footer-padding;
+        text-align: right;
+        button {
+          margin-left: $modal-footer-buttonLeft;
+        }
+    }
+}
