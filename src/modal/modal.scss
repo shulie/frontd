@@ -1,56 +1,70 @@
-$component-background: #eeeeee;
-$border-radius-base: 5px;
-$text-color: #666666;
-$border-width-base: 1px;
-$border-style-base: solid;
-$border-color-split: #f6f6f6;
+// 模态框- mask
+$modal-mask-backgroundColor: rgba(0,0,0,.4);
+$modal-content-backgroundColor: #ffffff;
+$modal-borderRadius: 5px;
+
+// 模态框-标题
+$modal-title-fontColor: #666666;
+$modal-title-fontSize: 14px;
+$modal-smTitle-fontColor: #aaaaaa;
+$modal-smTitle-fontSize: 12px;
+$mdoal-title-padding: 24px;
+
+// 模态框-close
+$modal-close-position: 24px;
+$modal-close-fontSize: 14px;
+$modal-close-fontFamily: iconfont;
+
+// 模态框-body
+$modal-body-padding: 24px;
+$modal-body-fontColor: #666666;
+$modal-body-fontSize: 12px;
+$modal-body-backgroundColor: #f6f6f6;
+
+// 模态框-footer
+$modal-footer-padding: 24px;
+$modal-footer-buttonLeft: 24px;
+
+@mixin maskStyle {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+}
 
 .dh-modal-mask {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background-color: #000;
-    background-color: rgba(0,0,0,.4);
+    @include maskStyle;
+    background-color: $modal-mask-backgroundColor;
     height: 100%;
-    z-index: 1000;
     &-hidden {
       display: none;
     }
 }
 
 .dh-modal-wrap {
-    position: fixed;
+    @include maskStyle;
     overflow: auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1000;
     outline: 0;
     display: flex;
-    align-items: center;
     align-items: center;
 }
 
 .dh-modal {
     position: relative;
-    width: 520px;
     margin: 0 auto;
-    background-color: #fff;
-    border-radius: 5px;
+    background-color: $modal-content-backgroundColor;
+    border-radius: $modal-borderRadius;
 
     &-close {
         cursor: pointer;
         border: 0;
         background: transparent;
         position: absolute;
-        right: 16px;
-        top: 16px;
+        right: $modal-close-position;
+        top: $modal-close-position;
         z-index: 10;
-        font-weight: 700;
-        line-height: 1;
         text-decoration: none;
         transition: color 0.3s ease;
         outline: 0;
@@ -58,13 +72,12 @@ $border-color-split: #f6f6f6;
         &-x {
             display: block;
             font-style: normal;
+            font-family: $modal-close-fontFamily;
+            font-size: $modal-close-fontSize;
             vertical-align: baseline;
             text-align: center;
             text-transform: none;
             text-rendering: auto;
-            width: 14px;
-            height: 14px;
-            line-height: 1;
 
             &:before {
                 content: "\e708";
@@ -74,22 +87,29 @@ $border-color-split: #f6f6f6;
     }
 
     &-header {
-        padding: 14px 16px;
-        border-radius: $border-radius-base $border-radius-base 0 0;
-        background: $component-background;
-        color: $text-color;
-        border-bottom: $border-width-base $border-style-base $border-color-split;
+        padding: $mdoal-title-padding;
     }
-
-    &-body {
-        padding: 16px 24px 40px;
+    &-title {
+      font-size: 14px;
+      color: #666666;
+      &-sub {
+        margin-top: 12px;
         font-size: 12px;
-        line-height: 1.5;
+        color: #aaaaaa;
+      }
+    }
+    &-body {
+        margin: 0 $modal-body-padding;
+        background-color: $modal-body-backgroundColor;
+        color: $modal-body-fontColor;
+        font-size: $modal-body-fontSize;
     }
 
     &-footer {
-        padding: 16px;
+        padding:  $modal-footer-padding;
         text-align: right;
-        border-top: $border-width-base $border-style-base $border-color-split;
+        button {
+          margin-left: $modal-footer-buttonLeft;
+        }
     }
 }

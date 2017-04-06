@@ -23,8 +23,12 @@ class Wrapper extends React.Component {
  showModal() {
 	 this.setState({visible:true});
  }
- handleCancel = (e) => {
+ handleCancel = () => {
 	 this.setState({visible:false});
+ }
+ handleOk = () => {
+	 console.log('确定了');
+	 this.handleCancel();
  }
 	render() {
 		let options = [{key:'1',value:'选项一'},{key:'2',value:'选项二'},{key:'3',value:'选项三'},{key:'4',value:'选项四'},];
@@ -38,6 +42,7 @@ class Wrapper extends React.Component {
 			</Menu>
 		)
 		const { title } = this.state;
+		const titleEl = {title:'主标题',subhead:'副标题'};
 		return (
 	    <div>
 			 	<Test/>
@@ -147,9 +152,11 @@ class Wrapper extends React.Component {
            		<Button onClick={this.showModal.bind(this)}>点我打开对话框</Button>
 					 </div>
 					 <Modal
-						 title="我的对话框"
+						//  title={ titleEl }
+						 title="对话框标题"
 						 visible={this.state.visible}
 						 onCancel={this.handleCancel}
+						 onOk={this.handleOk}
 						>
 							<p>对话框内容</p>
 							<p>对话框内容</p>
