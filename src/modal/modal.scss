@@ -3,19 +3,19 @@ $modal-mask-backgroundColor: rgba(0, 0, 0, 0.4);
 
 $modal-backgroundColor: #ffffff;
 $modal-borderRadius: 0;
-$modal-padding: 10px 0;
+$modal-padding: 0 0 8px;
 
 // 模态框-close
-$modal-close-top: 10px;
+$modal-close-top: 16px;
 $modal-close-right: 20px;
 $modal-close-fontSize: 18px;
 
-$modal-close-x-width: 30px;
-$modal-close-x-height: 30px;
+$modal-close-x-width: 20px;
+$modal-close-x-height: 20px;
 $modal-close-x-fontSize: 18px;
 
-$modal-header-padding: 0 20px;
-$modal-title-height: 30px;
+$modal-header-padding: 16px 24px;
+$modal-title-height: 20px;
 $modal-title-fontSize: 14px;
 $modal-title-color: #666666;
 
@@ -27,12 +27,12 @@ $modal-body-fontSize: 12px;
 $modal-body-backgroundColor: transparent;
 
 // 模态框-footer
-$modal-footer-padding: 0 20px;
-$modal-footer-fontSize: 12px;
+$modal-footer-padding: 0 8px 0 24px;
+$modal-footer-fontSize: 14px;
 $modal-footer-color: #23C132;
 
-$modal-footer-btn-width: 60px;
-$modal-footer-btn-height: 30px;
+$modal-footer-btn-width: 64px;
+$modal-footer-btn-height: 36px;
 $modal-footer-btn-hover-color: #e9f8ea;
 .dh-modal-mask {
     position: fixed;
@@ -91,7 +91,7 @@ $modal-footer-btn-hover-color: #e9f8ea;
             text-rendering: auto;
             line-height: $modal-close-x-height;
             &:before {
-                content: "\e7dc";
+                content: "\e629";
                 display: block;
             }
         }
@@ -109,6 +109,7 @@ $modal-footer-btn-hover-color: #e9f8ea;
       line-height: $modal-title-height;
       color: $modal-title-color;
       font-size: $modal-title-fontSize;
+      font-weight: bold;
     }
     &-body {
       position: relative;
@@ -135,6 +136,9 @@ $modal-footer-btn-hover-color: #e9f8ea;
         &:hover {
           background: $modal-footer-btn-hover-color;
         }
+      }
+      &_btn:not(:last-child) {
+        margin-right: 8px;
       }
     }
 }
