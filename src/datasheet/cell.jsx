@@ -66,7 +66,7 @@ class DatasheetCell extends React.Component {
             />
           ) : null
         }
-        <span>{value || '-'}</span>
+        <span>{value}</span>
       </td>
     )
   }
