@@ -56,7 +56,7 @@ class RangeCalenderOpen extends Component {
     const { ranges } = this.props
     let dateString
     if(ranges) {
-      dateString = ranges[rangeIdx]
+      dateString = Object.keys(ranges)[rangeIdx]
     }
     this.setState({selectedValue: value, rangeIdx}, () => {
       if(this.props.onFooterChange) {
