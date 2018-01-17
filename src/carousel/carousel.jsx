@@ -6,21 +6,21 @@ class Carousel extends React.Component {
   constructor(props) {
     super(props);
   }
-   carouselNext() {
-    this.refs.slick.slickNext();
+  carouselNext() {
+    this.slick.slickNext();
   }
   carouselPrev() {
-    this.refs.slick.slickPrev();
+    this.slick.slickPrev();
   }
   carouselGo(number) {
-    this.refs.slick.slickGoTo(number)
+    this.slick.slickGoTo(number)
   }
   render() {
     const me = this;
     const {children, ...props } = me.props;
     return (
       <div className="dh-carousel">
-        <Slick  {...props} ref="slick">
+        <Slick  {...props} ref={s => this.slick = s}>
           { children }
         </Slick>
       </div>
