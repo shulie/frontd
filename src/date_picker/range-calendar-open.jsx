@@ -15,7 +15,8 @@ class RangeCalenderOpen extends Component {
     selectedValue: PropTypes.array,
     ranges: PropTypes.object,
     defaultRange: PropTypes.string,
-    cn: PropTypes.bool
+    cn: PropTypes.bool,
+    theme: PropTypes.string
   }
   static defaultProps = {
     format: 'YYYY-MM-DD',
@@ -89,11 +90,11 @@ class RangeCalenderOpen extends Component {
     return [ rangeNode ]
   }
   render() {
-    const { cn, dateInputPlaceholder, format, defaultSelectedValue } = this.props
+    const { cn, dateInputPlaceholder, format, defaultSelectedValue, theme } = this.props
     const { selectedValue } = this.state
     return ( 
       <RangeCalendar 
-        className={`${prefixCls}-range-open`}
+        className={theme === 'dark' ? `${prefixCls}-range-open ${prefixCls}-dark` : `${prefixCls}-range-open`}
         prefixCls={prefixCls}
         showToday={false}
         dateInputPlaceholder={dateInputPlaceholder}
