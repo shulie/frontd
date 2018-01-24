@@ -92,6 +92,7 @@ class DatePickerDemo extends Component {
       <br/>
        <div style={{width: '100%',padding: '8px'}}>
          <RangeCalendarOpen 
+          theme='dark'
           ranges={ranges}
           defaultRange='本月'
           defaultSelectedValue={[moment(), moment().endOf('month')]}
