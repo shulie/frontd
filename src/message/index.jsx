@@ -17,11 +17,19 @@ function createMessageInstance() {
   if (messageInstance && messageInstance.destroy) {
     messageInstance.destroy();
   }
-  messageInstance = Notification.newInstance({
+ Notification.newInstance({
     prefixCls: 'dh-message',
     transitionName: 'move-up',
     style: { left:'50%' } // 覆盖原来的样式
-  });
+  }, (n) => messageInstance = n);
+  //兼容react 15版本
+  if (!messageInstance) {
+    messageInstance = Notification.newInstance({
+      prefixCls: 'dh-message',
+      transitionName: 'move-up',
+      style: { left:'50%' } // 覆盖原来的样式
+    });
+  }
   return messageInstance;
 }
 
