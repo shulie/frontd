@@ -41,7 +41,8 @@ class RangeDateCalendar extends Component {
     range: PropTypes.string,
     defaultRange: PropTypes.string,
     wrapperClassName: PropTypes.string,
-    className: PropTypes.string
+    className: PropTypes.string,
+    theme: PropTypes.string
   }
   constructor(props) {
     super(props)
@@ -147,13 +148,14 @@ class RangeDateCalendar extends Component {
     return [ rangeNode ]
   }
   renderCalendar = () => {
-    const { prefixCls, locale, showTime, showToday, ranges, dateInputPlaceholder, showDateInput, wrapperClassName,
+    const { prefixCls, locale, showTime, showToday, ranges, dateInputPlaceholder, showDateInput, wrapperClassName, theme,
        ...restProps } = this.props
     const timePickerElement =  <TimePickerPanel  prefixCls="dh-calendar-time-picker" defaultValue={moment('00:00:00', 'HH:mm:ss')} />;
     return (
       <RangeCalendar
         prefixCls={prefixCls}
         className={classnames({
+          [`${prefixCls}-dark`]: theme === 'dark',
           'dh-calendar-time': showTime,
           [`${prefixCls}-range-with-ranges`]: ranges,
           'dh-calendar-input-wrap-disabled': !showDateInput,
@@ -173,7 +175,7 @@ class RangeDateCalendar extends Component {
   }
   render() {
     const { value, open } = this.state
-    const { disabled, locale, rangePlaceholder, showClear, className } = this.props
+    const { disabled, locale, rangePlaceholder, showClear, className, theme } = this.props
     return (
       <DatePicker
         animation="slide-up"
@@ -189,7 +191,8 @@ class RangeDateCalendar extends Component {
           ({value}) => {
             return (
               <div className={classnames('dh-calendar-picker', {
-                [`${className}`]: className
+                [`${className}`]: className,
+                'dh-calendar-picker-dark': theme === 'dark'
               })}>
                 <span className="dh-calendar-picker-input">
                   <input
