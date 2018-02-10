@@ -3,12 +3,15 @@ import PropTypes from 'prop-types';
 import is from 'is_js';
 import RcSlider, { Range, Handle } from 'rc-slider';
 import classnames from 'classnames';
-import { Tooltip, Button } from '../index';
+import { Tooltip } from '../index';
 const RcRange = Range;
 const RcHandle = Handle;
 
 
 class Slider extends React.Component {
+  static propTypes = {
+    overlayClassName: PropTypes.string
+  }
   static defaultProps = {
     prefixCls: 'dh-slider',
     tooltipPrefixCls: 'dh-slider-tooltip',
@@ -43,10 +46,11 @@ class Slider extends React.Component {
   }
 
   handleTooltip = ({ value, dragging, index, ...restProps }) => {
-    const { trigger, tooltipPrefixCls, visible, auto } = this.props;
+    const { trigger, tooltipPrefixCls, visible, auto, overlayClassName } = this.props;
     if (auto) {
       return (
         <Tooltip
+          overlayClassName={classnames({[`${overlayClassName}`]: overlayClassName})}
           prefixCls={tooltipPrefixCls}
           overlay={this.renderHandle(value,index)}
           placement={this.renderPlacement(index)}
@@ -62,6 +66,7 @@ class Slider extends React.Component {
     } else {
       return (
         <Tooltip
+          overlayClassName={classnames({[`${overlayClassName}`]: overlayClassName})}
           prefixCls={tooltipPrefixCls}
           overlay={this.renderHandle(value,index)}
           placement={this.renderPlacement(index)}

@@ -37,7 +37,7 @@ $ul_border_color: #e6e6e6;
     -ms-transform: scaleY(1);
     transform: scaleY(1);
     transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-    background-color: #50d27c;
+    background-color: #23c132;
   }
   &-inner {
     &__avatar {
@@ -71,7 +71,7 @@ $ul_border_color: #e6e6e6;
       .dh-list-info {
         cursor: pointer;
         font-size: 20px;
-        color: #50d27c;
+        color: #23c132;
         height: 32px;
         width: 32px;
         text-align: center;

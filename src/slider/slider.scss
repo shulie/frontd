@@ -39,24 +39,25 @@ $sider-tooltip-color: #f6f6f6;
       border-radius: 50%;
       vertical-align: middle;
       &-active {
-        border-color: #39b86e;
+        border-color: #23c132;
       }
     }
 
     &-handle {
         position: absolute;
-        margin-top: -10px;
-        width: 16px;
-        height: 16px;
         cursor: pointer;
         background-color: #fff;
         z-index: 2;
-
+        top: 50%;
+        transform: translateY(-50%);
         &:after {
             font-family: dhfont !important;
-            color: #39b86e;
+            color: #23c132;
             content: '\e71f';
             font-size: 16px;
+        }
+        &-2 {
+          transform: translate(-50%, -50%)
         }
     }
 

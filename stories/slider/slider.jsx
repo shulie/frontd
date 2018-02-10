@@ -92,7 +92,15 @@ class SliderDemo extends React.Component{
         <br/>
         <Slider  step={null} max={80} reverse  marks={marks2}  defaultValue={10} />
         <br/>
-        <DatePicker  onChange={(date, dateString) => {console.log(date, dateString)}} />
+        <div>
+         <Slider 
+           auto 
+           range 
+           visible
+           overlayClassName={'tooltipClassName'} 
+           trigger={['hover']} 
+           defaultValue={[20, 50]} />
+        </div>
       </div>
     )
   }

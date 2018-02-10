@@ -20,16 +20,28 @@ export Carousel from './carousel';
 export Slider from './slider';
 export Form from './form';
 export ColorPicker from './color_picker';
+export Datasheet from './datasheet';
+export DatePicker from './date_picker';
+export Checkbox2 from './checkbox2';
+export Tinymce from './tinymce';
+/**--abstract from antd */
+export Row from './row';
+export Col from './col';
+export Layout from './layout';
+export Spin from './spin';
+export Popover from './popover';
+/**--test end */
+
 /* begin --- import antd component **/
-export Row from 'antd/lib/row';
-export Col from 'antd/lib/col';
+// export Row from 'antd/lib/row';
+// export Col from 'antd/lib/col';
 // export Form from 'antd/lib/form';
-export Layout from 'antd/lib/layout';
+// export Layout from 'antd/lib/layout';
 export Upload from 'antd/lib/upload';
 export Progress from 'antd/lib/progress';
 export Collapse from 'antd/lib/collapse';
-export Popover from 'antd/lib/popover';
+// export Popover from 'antd/lib/popover';
 export Tree from 'antd/lib/tree';
-export DatePicker from 'antd/lib/date-picker';
-export Spin from 'antd/lib/spin'
+export DatePicker2 from 'antd/lib/date-picker';
+// export Spin from 'antd/lib/spin';
 /* endt --- import antd component **/

@@ -39,31 +39,31 @@ class Input extends React.Component {
     this.handleBlur = this.handleBlur.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
   }
-  componentWillMount() {
-    if (this.props.value) {
-      this.state.value = this.props.value;
-    }
-  }
-  componentWillReceiveProps(nextProps) {
-    if (this.props.value !== nextProps.value) {
-      this.state.value = nextProps.value;
-    }
-  }
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return !nextProps.value !== nextState.value;
+  // componentWillMount() {
+  //   if (this.props.value) {
+  //     this.state.value = this.props.value;
+  //   }
   // }
+  // componentWillReceiveProps(nextProps) {
+  //   if (this.props.value !== nextProps.value) {
+  //     this.state.value = nextProps.value;
+  //   }
+  // }
+  // // shouldComponentUpdate(nextProps, nextState) {
+  // //   return !nextProps.value !== nextState.value;
+  // // }
   handleBlur(e) {
-    this.setState({
-      focus: false
-    })
+    // this.setState({
+    //   focus: false
+    // })
     if (this.props.onBlur) {
       this.props.onBlur(e);
     }
   }
   handleFocus(e) {
-    this.setState({
-      focus: true
-    })
+    // this.setState({
+    //   focus: true
+    // })
     if (this.props.onFocus) {
       this.props.onFocus(e);
     }
@@ -98,8 +98,8 @@ class Input extends React.Component {
         }
         <div className="dh-input-warp">
           <input
-            className="dh-input-warp-inner"
             {...props}
+            className="dh-input-warp-inner"
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
           />

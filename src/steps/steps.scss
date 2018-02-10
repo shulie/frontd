@@ -27,7 +27,7 @@
       display: inline-block;
       width: 100%;
       height: inherit;
-      background-color: #50d27c;
+      background-color: #23c132;
       text-align: center;
       color: #fff;
       font-size: 14px;
@@ -37,7 +37,7 @@
         display: inline-block;
         width: 100%;
         height: inherit;
-        background-color: #50d27c;
+        background-color: #23c132;
         text-align: center;
         color: #fff;
         font-size: 14px;
@@ -65,7 +65,7 @@
     &__inline {
       width: 0;
       height: 100%;
-      background-color: #50d27c;
+      background-color: #23c132;
       &[data-slide="true"] {
         @include keyframes_inline_start;
       }

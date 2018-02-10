@@ -7,7 +7,8 @@ class Group extends Component {
   static propTypes = {
     defaultValue: PropTypes.array,
     defaultSelectKeys: PropTypes.array,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    selectValues: PropTypes.array
   }
 
   static defaultProps = {
@@ -18,11 +19,15 @@ class Group extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      checked: props.defaultSelectKeys || props.defaultValue || [],
+      checked: props.selectValues || props.defaultSelectKeys || props.defaultValue || [],
     };
     this.onSelectChange = this.onSelectChange.bind(this);
   }
-
+  componentWillReceiveProps(nextProps) {
+    if (JSON.stringify(nextProps.selectValues) !== JSON.stringify(this.props.selectValues)) {
+      this.setState({checked: nextProps.selectValues})
+    }
+  }
   onSelectChange(chk, key) {
     const { selectKeys } = this.state;
     let checked;
@@ -49,11 +54,11 @@ class Group extends Component {
   }
 
   render() {
-    const { children } = this.props;
+    const { children, className } = this.props;
     const { checked } = this.state;
 
     return (
-      <div>
+      <div className={className}>
         {React.Children.map(children, (child, i) => {
           const key = child.key || i;
           const props = {

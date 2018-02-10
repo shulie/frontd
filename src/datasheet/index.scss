@@ -1,0 +1,64 @@
+.dh-datasheet {
+  position: relative;
+  overflow: auto;
+  height: 100%;
+  border: 1px solid #cecece;
+  table {
+    width: 100%;
+    outline: none;
+    tr {
+      height: 28px;
+      line-height: 28px;
+      &:nth-child(even) {
+        >td {
+          background-color: #f7f8f9;
+        }
+      }
+       &:nth-child(odd) {
+        >td {
+          background-color: #fff;
+        }
+      }
+      th {
+        height: 28px;
+        line-height: 28px;
+        font-size: 12px;
+        border-right: 1px solid #cecece;
+        border-bottom: 1px solid #cecece;
+        background: #ECEFF1;
+        color: #666666;
+        white-space: pre;
+        padding: 0 6px;
+      }
+      td {
+        box-sizing: border-box;
+        font-size: 12px;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        border-right: 1px solid #cecece;
+        border-bottom: 1px solid #cecece;
+        overflow: hidden;
+        text-align: left;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        outline: none;
+        input.editable {
+          padding: 0 6px;
+          width: 100%;
+          height: 100%;
+          border: none;
+          outline: none;
+          background: none;
+        }
+        span {
+          color: #333333;
+          padding: 0 6px;
+        }
+      }
+      td.selected {
+        border: 2px solid #23C132;
+      }
+    }
+  }
+}

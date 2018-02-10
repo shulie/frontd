@@ -17,7 +17,7 @@ storiesOf('气泡卡片', module)
   .addWithInfo(
     '默认卡片', 
     () => (
-     <Popover content={content} title="Title" trigger="click">
+     <Popover content={content} title="Title" trigger="hover" placement="topLeft">
       <a>Hover me</a>
     </Popover>
   ), options)

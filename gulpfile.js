@@ -38,5 +38,8 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('copy', function(){
+  gulp.src('./src/**/*.{eot,svg,ttf,woff,woff2}').pipe(gulp.dest('dist'));
+});
 
-gulp.task('default', ['bable', 'sass', 'import', 'concat']);
+gulp.task('default', ['bable', 'sass', 'import', 'concat', 'copy']);
