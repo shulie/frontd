@@ -49,15 +49,15 @@ $sider-tooltip-color: #f6f6f6;
         background-color: #fff;
         z-index: 2;
         top: 50%;
-        transform: translateY(-50%);
+        width: 16px;
+        height: 16px;
+        line-height: 1;
+        transform: translate(-50%, -50%);
         &:after {
             font-family: dhfont !important;
             color: #23c132;
             content: '\e71f';
             font-size: 16px;
-        }
-        &-2 {
-          transform: translate(-50%, -50%)
         }
     }
 

@@ -38,7 +38,7 @@ class Slider extends React.Component {
       if (is.array(placement) && is.not.empty(placement)) {
         return placement[index];
       } else {
-        return index == 0 ? 'topLeft' : 'bottomRight';
+        return index == 0 ? 'top' : 'bottom';
       }
     } else {
       return is.string(placement) ? placement : 'top'
