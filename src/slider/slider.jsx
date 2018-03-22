@@ -38,7 +38,7 @@ class Slider extends React.Component {
       if (is.array(placement) && is.not.empty(placement)) {
         return placement[index];
       } else {
-        return index == 0 ? 'top' : 'bottom';
+        return index == 0 ? 'topLeft' : 'bottomRight';
       }
     } else {
       return is.string(placement) ? placement : 'top'
@@ -57,6 +57,7 @@ class Slider extends React.Component {
           key={index}
           visible={visible}
           trigger={trigger}
+          arrowPointAtCenter={true}
         >
           <RcHandle
             {...restProps}
@@ -72,6 +73,7 @@ class Slider extends React.Component {
           placement={this.renderPlacement(index)}
           key={index}
           trigger={trigger}
+          arrowPointAtCenter={true}
         >
           <RcHandle
             {...restProps}
