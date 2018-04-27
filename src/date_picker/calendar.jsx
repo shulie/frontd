@@ -9,7 +9,7 @@ import enUS from './locale/en_US';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 import 'moment/locale/en-gb';
-import 'rc-calendar/assets/index.css'
+import 'rc-calendar/assets/index.css';
 
 class Calendar extends Component {
   static defaultProps = {
@@ -31,11 +31,14 @@ class Calendar extends Component {
     super(props)
     this.state = {
       disabled: false,
-      value: this.props.defaultValue
+      value: props.defaultValue
     }
   }
   onChange = (value) => {
     this.setState({ value });
+    if (this.props.onChange) {
+      this.props.onChange(value)
+    }
   }
   handleClear = (e) => {
     e.preventDefault();
@@ -46,7 +49,7 @@ class Calendar extends Component {
     }
   }
   renderCalendar() {
-    const { prefixCls, locale, showTime, showDateInput,  ...restProps } = this.props
+    const { prefixCls, locale, showTime, showDateInput, onChange,  ...restProps } = this.props
     const timePickerElement =  <TimePickerPanel prefixCls="dh-calendar-time-picker" defaultValue={moment('00:00:00', 'HH:mm:ss')} />;
     return (
       <RcCalendar
