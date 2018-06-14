@@ -98,5 +98,7 @@
 	"database": "\\e63b",
 	"style": "\\e642",
 	"componentlist": "\\e643",
-	"qrcode": "\\e667"
+	"qrcode": "\\e667",
+	"mobile": "",
+	"mail": "\\e667"
 }
