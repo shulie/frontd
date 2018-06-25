@@ -53,6 +53,10 @@ export default class Tinymce extends React.Component {
   }
   _onChange(editorState) {
     this.setState({ editorState })
+    const { onChange } = this.props
+    if (onChange) {
+      onChange(editorState.getCurrentContent().getPlainText())
+    }
   }
   _insertImage(src, description) {
    this.handleChange(insertImages(this.state.editorState, {
