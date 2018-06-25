@@ -53,6 +53,10 @@ export default class Tinymce extends React.Component {
   }
   _onChange(editorState) {
     this.setState({ editorState })
+    const { onChange } = this.props
+    if (onChange) {
+      onChange(editorState.getCurrentContent().getPlainText())
+    }
   }
   _insertImage(src, description) {
    this.handleChange(insertImages(this.state.editorState, {
@@ -95,14 +99,17 @@ export default class Tinymce extends React.Component {
     return convertToHTML(config)(contentState)
   }
   _handleClickSave() {
-    let html = this._convertToHTML(this.state.editorState.getCurrentContent())
-    if (this.props.onSave) {
-      this.props.onSave(html)
-      this.setState({ editorState: EditorState.createEmpty()})
+    if (this.enabled) {
+      let html = this._convertToHTML(this.state.editorState.getCurrentContent())
+      if (this.props.onSave) {
+        this.props.onSave(html)
+        this.setState({ editorState: EditorState.createEmpty()})
+      }
     }
   }
   render() {
     const { uploadConfig, footer, footerText, innerElement, placeholder, onSnap, snap } = this.props
+    const { editorState } = this.state
     const uploadProps = {
       prefixCls: "dh-upload",
       className: 'dh-tinymce-ctr',
@@ -111,6 +118,7 @@ export default class Tinymce extends React.Component {
       onSuccess: this._imagesUploadSuccess,
       onError: () => console.error('onError', err)
     }
+    this.enabled = !!(editorState.getCurrentContent().getPlainText().length || innerElement)
     return (
       <div className="dh-tinymce">
         <div className="dh-tinymce-btns">
@@ -136,7 +144,10 @@ export default class Tinymce extends React.Component {
         {
           footer === true ? (
             <div className="dh-tinymce-footer">
-              <span onClick={this.handleClickSave}>{ footerText || '发送' }</span>
+              <span 
+                onClick={this.handleClickSave}
+                className={this.enabled ? '' : 'not-allowed'}
+              >{ footerText || '发送' }</span>
           </div>) : null
         }
         </div>

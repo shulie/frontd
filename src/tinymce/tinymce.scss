@@ -31,6 +31,14 @@
       width: 64px;
       text-align: center;
       color: #999999;
+      &.not-allowed {
+        cursor: not-allowed;
+        &:hover {
+          color: #999;
+          background: transparent;
+          cursor: not-allowed;
+        }
+      }
       &:hover {
         color: #23c132;
         background: rgba(35,193,50,0.10);;
