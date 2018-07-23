@@ -69,7 +69,7 @@ class Modal extends React.Component {
   renderFooter() {
     const { cancelText, okText, footer } = this.props;
     if (is.object(footer)) return footer; //element类型 直接返回
-    const buttonOk = (
+    const buttonOk = okText ? (
       <button
         key="ok"
         onClick={this.handleOk}
@@ -77,8 +77,8 @@ class Modal extends React.Component {
       >
         {okText}
       </button>
-    )
-    const buttonCancel = (
+    ) : null
+    const buttonCancel = cancelText ? (
       <button
         key="cancel"
         onClick={this.handleCancel}
@@ -86,7 +86,7 @@ class Modal extends React.Component {
       >
         {cancelText}
       </button>
-    );
+    ) : null;
     return [buttonOk, buttonCancel];
   }
   renderTitle() {
