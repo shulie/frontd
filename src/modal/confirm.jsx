@@ -30,7 +30,9 @@ export default function confirm(config) {
 
   let body = (
     <div className={`${prefixCls}-confirm-body`}>
-      <Icon type={props.iconType} style={{color: '#ffbf00'}} />&nbsp;&nbsp;
+      {
+        props.iconType && <Icon type={props.iconType} style={{color: '#ffbf00', marginRight: 8}} />
+      }
       <span className={`${prefixCls}-content`}>{props.content}</span>
     </div>
   );
