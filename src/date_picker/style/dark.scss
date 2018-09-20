@@ -1,0 +1,61 @@
+.dh-calendar-picker-dark {
+  background: transparent;
+  border: none;
+  .dh-calendar-picker-input .dh-calendar-range-picker-input {
+    color: #999;
+  }
+}
+.dh-calendar-dark {
+  border: 1px solid #404040;
+  background: #212127;
+  color: rgb(153, 153, 153);
+  .dh-calendar-input-wrap {
+      border-bottom: 1px solid #404040;
+  }
+  .dh-calendar-input {
+      color: #999999;
+      background: transparent;
+  } //月份选择
+  .dh-calendar-header {
+      border-bottom: 1px solid #404040;
+      a {
+          color: rgb(153, 153, 153)
+      }
+  }
+  .dh-calendar-cell {
+      //日期
+      .dh-calendar-date {
+          color: rgba(153, 153, 153, 0.65)
+      }
+      &.dh-calendar-selected-day .dh-calendar-date {
+        color: #fff;
+      }
+  }
+  .dh-calendar-in-range-cell {
+      //选择的日期范围内的时间
+      .dh-calendar-date {
+          color: rgba(153, 153, 153, 0.65)
+      }
+  }
+  .dh-calendar-last-month-cell {
+      //上个月的时间
+      .dh-calendar-date {
+          color: rgba(153, 153, 153, 0.25)
+      }
+  }
+  .dh-calendar-next-month-btn-day {
+      //下个月的时间
+      .dh-calendar-date {
+          color: rgba(153, 153, 153, 0.25)
+      }
+  }
+  .dh-calendar-range-middle {
+      color: #999999;
+  }
+  .dh-calendar-footer-show-ok {
+    border: none;
+  }
+  .dh-calendar-footer-extra + .dh-calendar-footer-btn {
+    border: none;
+  }
+}

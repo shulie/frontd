@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Form, Button, Select, Row, Col } from '../../src';
+import { Input, Form,  Button, Select, Row, Col } from '../../src';
 const formItemLayout = {
   labelCol: {
     xs: { span: 24 },
@@ -14,6 +14,10 @@ class FormDemo extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.handleClickClear = this.handleClickClear.bind(this);
+  }
+  handleClickClear() {
+    this.props.form.resetFields();
   }
   handleClick() {
    this.props.form.validateFields((err, values) => {
@@ -46,16 +50,14 @@ class FormDemo extends React.Component {
                 rules: [{
                   type: 'email', message: 'The input is not valid E-mail!',
               }]
-              })(<Input type="text" />)
+              })(<Input />)
             }
             </Form.Item>
             <Form.Item
               label="性别"
             >
               {
-                getFieldDecorator('sex', {
-                  valuePropName: 'checked',
-                })(
+                getFieldDecorator('sex')(
                   <Select placeholder="请选择">
                   <Select.Option value="1">男</Select.Option>
                   <Select.Option value="2">女</Select.Option>
@@ -69,9 +71,7 @@ class FormDemo extends React.Component {
               extra="我是个人爱好"
             >
               {
-                getFieldDecorator('name', {
-                  valuePropName: 'checked',
-                })(<Input type="text" />)
+                getFieldDecorator('name')(<Input type="text" />)
               }
             </Form.Item>
               <Form.Item
@@ -79,14 +79,15 @@ class FormDemo extends React.Component {
               extra="我是个人爱好"
             >
               {
-                getFieldDecorator('name', {
-                  valuePropName: 'checked',
-                })(<Input type="text" />)
+                getFieldDecorator('a', {
+                  initialValue: ''
+                })(<input type="text" />)
               }
             </Form.Item>
             <Form.Item
             >
               <Button onClick={this.handleClick}> 提交 </Button>
+              <Button onClick={this.handleClickClear}> 清空 </Button>
             </Form.Item>
           </Form>
 

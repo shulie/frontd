@@ -67,7 +67,6 @@ class List extends React.Component {
     if (JSON.stringify(nextProps.defaultKeys) !== JSON.stringify(this.props.defaultKeys)) {
       if (nextProps.defaultKeys) {
         const defaultKeys = this.props.defaultKeys;
-        let selectedKeys = [];
         if (typeof defaultKeys === 'string') {
           selectedKeys = [defaultKeys];
           console.error('Error:', 'defaultKeys is defined as Array, you pass in a string!!!');
@@ -77,13 +76,13 @@ class List extends React.Component {
       }
     }
     if (JSON.stringify(nextProps.selectedKeys) !== JSON.stringify(this.props.defaultKeys)) {
-      let selectedKeys = [];
-      if (Array.isArray(selectedKeys)) {
-        selectedKeys = selectedKeys;
+      if (Array.isArray(nextProps.selectedKeys)) {
+        selectedKeys = nextProps.selectedKeys;
       } else {
         throw new Error('selectedKeys is data type error');
       }
     }
+    this.setState({ selectedKeys });
   }
   getChildContext() {
     const forbid = ['only', 'multiple'].indexOf(this.props.mode) !== -1 ? true : false;

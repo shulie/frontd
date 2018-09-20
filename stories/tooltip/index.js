@@ -10,5 +10,5 @@ const options = {
 storiesOf('Tooltip 提示信息', module)
   // .addDecorator(withReadme(listReadme))
   .addWithInfo('默认列表', () => (
-   <TooltipDeom />
+   <TooltipDeom/>
   ), { inline: true })

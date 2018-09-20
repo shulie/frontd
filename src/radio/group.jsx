@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 class Group extends Component {
   static propTypes = {
     defaultSelectKey: PropTypes.string,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    selectKey: PropTypes.string
   }
 
   static defaultProps = {
@@ -13,9 +14,15 @@ class Group extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      checked: props.defaultSelectKey
+      checked: props.selectKey || props.defaultSelectKey
     };
     this.onSelectChange = this.onSelectChange.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (JSON.stringify(nextProps.selectKey) !== JSON.stringify(this.props.selectKey)) {
+      this.setState({checked: nextProps.selectKey})
+    }
   }
 
   onSelectChange(checked, key) {

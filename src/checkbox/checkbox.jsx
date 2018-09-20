@@ -17,11 +17,15 @@ class Checkbox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      checked: props.defaultValue
+      checked: props.checked || props.defaultValue 
     };
     this.onClickSelect = this.onClickSelect.bind(this);
   }
-
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.checked !== this.props.checked) {
+      this.setState({checked: nextProps.checked})
+    }
+  }
   onClickSelect() {
     const { checked } = this.state;
 

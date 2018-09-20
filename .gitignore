@@ -10,4 +10,4 @@ jest
 dist
 coverage
 .idea
-storybook-static
+

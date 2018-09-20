@@ -1,7 +1,7 @@
 $tap-ink-bar-height: 2px;
 $tap-bar-border-color: #d8dbe4;
 $tab-nav-padding-defalut: 8px 0;
-$tab-nav-bgColor-defalut: #3ab86e;
+$tab-nav-bgColor-defalut: #23c132;
 $tab-nav-padding-diamond: 8px 0;
 $tab-nav-bgColor-diamond: transparent;
 /* extend --begin */
@@ -63,7 +63,7 @@ $tab-nav-bgColor-diamond: transparent;
     @include tabTab($type);
     @if $type == 'diamond' {
       .dh-tab-tab-active {
-        background-color: #3ab86e;
+        background-color: #23c132;
         color: #fff;
       }
     } @else {

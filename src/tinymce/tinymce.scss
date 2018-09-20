@@ -1,0 +1,79 @@
+.dh-tinymce {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  min-height: 160px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  &-btns {
+    height: 38px;
+    font-size: 20px;
+    line-height: 38px;
+    color: #999999;
+  }
+  &-ctr {
+    cursor: pointer;
+  }
+  &-btns-barLine {
+    border-bottom: 1px solid #ddd;
+  }
+  &-edit {
+    flex: 1;
+    overflow: auto;
+  }
+  &-footer {
+    height: 36px;
+    text-align: right;
+    line-height: 36px;
+    span {
+      display: inline-block;
+      width: 64px;
+      text-align: center;
+      color: #999999;
+      &.not-allowed {
+        cursor: not-allowed;
+        &:hover {
+          color: #999;
+          background: transparent;
+          cursor: not-allowed;
+        }
+      }
+      &:hover {
+        color: #23c132;
+        background: rgba(35,193,50,0.10);;
+        cursor: pointer;
+      }
+    }
+  }
+  .dh-upload {
+    outline: none;
+    input {
+      outline: none;
+      border: none;
+      background: none;
+    }
+  }
+}
+
+.DraftEditor-root {
+  position: relative;
+  .public-DraftEditorPlaceholder-root, .public-DraftEditor-content {
+    // margin: 0 -15px -15px;
+    // padding: 0 15px;
+  }
+} 
+.public-DraftEditorPlaceholder-root {
+  color: #9197a3;
+  position: absolute;
+  z-index: 0;
+}
+.public-DraftEditorPlaceholder-hasFocus {
+  color: #bdcec9;
+}
+.DraftEditor-editorContainer {
+  background-color: rgba(255,255,255,0);
+  border-left: .1px solid transparent;
+  position: relative;
+  z-index: 1;
+}

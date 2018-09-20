@@ -52,6 +52,7 @@ class Form extends React.Component {
         return this.__getFieldProps(name, option);
       },
       render() {
+        ('wjb-test', this.deprecatedGetFieldProps)
         this.props.form.getFieldProps = this.deprecatedGetFieldProps;
 
         const withRef = {};
